@@ -1,24 +1,20 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ligabaloncesto;
+
+package com.mycompany.ligabaloncesto;
 
 import java.util.Scanner;
 
 /**
  *
- * @author ANGIE DURAN
+ * @author user
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
+       Scanner scanner = new Scanner(System.in);
+        int opcion; 
         
         
         partidoLiga partidoliga = new partidoLiga(1, "Equipo A", "Equipo B", 5, 0, false, "2023-01-01");
@@ -39,13 +35,18 @@ public class Main {
                     break;
 
                 case 2:
-
+                    System.out.println("Ingresa los puntos para los locales ");
+                    int puntosLocales = scanner.nextInt();
+                    partidoliga.setCestasLocal(partidoliga.getCestasLocal() + puntosLocales);
                     break;
                 case 3:
-
+                    System.out.println("Ingresa punto para los visitantes: ");
+                    int puntoVisitante = scanner.nextInt();
+                    partidoliga.setCestasVisitante(partidoliga.getCestasVisitante() + puntoVisitante);
                     break;
 
                 case 4:
+                    System.out.println("El ganador del partido es: ");
 
                     break;
 
