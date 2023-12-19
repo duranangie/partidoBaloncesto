@@ -17,6 +17,7 @@ public class Main {
         int opcion; 
         
         
+        
         partidoLiga partidoliga = new partidoLiga(1, "Equipo A", "Equipo B", 5, 0, false, "2023-01-01");
 
         do {
@@ -47,7 +48,8 @@ public class Main {
 
                 case 4:
                     System.out.println("El ganador del partido es: ");
-
+                    String ganador = (partidoliga.getCestasLocal() > partidoliga.getCestasVisitante()) ? partidoliga.getEquipoLocal() : partidoliga.getEquipoVisitante();
+                    System.out.println("El ganador de partido es "+ ganador);
                     break;
 
                 case 0:
