@@ -15,11 +15,11 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+   
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int opcion;
-
-        partidoLiga partidoliga = new partidoLiga(1, "Equipo A", "Equipo B", 5, 0, false, "2023-01-01");
+        int opcion = -1;
+        partidoLiga partidoliga = new partidoLiga(1, "Equipo A", "Equipo B", 0, 0, false, "2023-01-01");
 
         do {
             System.out.println("Bienvenido al partido");
@@ -28,8 +28,20 @@ public class Main {
             System.out.println("3. registrar puntos para los visitantes");
             System.out.println("4.obtener el ganador");
             System.out.println("0.Salir");
-            if (scanner.hasNextInt()) {
-                opcion = scanner.nextInt();
+
+                if (scanner.hasNextLine()) {
+                String input = scanner.nextLine().trim(); //Leer espacios en blanco
+               
+                if (input.isEmpty()) {
+                    System.err.println("Verifica nuevamene!");
+                }
+
+                if (input.matches("\\d+")) {
+                    opcion = Integer.parseInt(input);
+                } else {
+                    System.err.println("Error ingresa solo numeros enteros");
+                    continue; // Se reinicia el ciclo 
+                }
 
                 switch (opcion) {
                     case 1:
@@ -39,6 +51,7 @@ public class Main {
                     case 2:
 
                         System.out.println("Ingresa los puntos para los locales ");
+                        scanner.nextLine();
                         if (scanner.hasNextInt()) {
                             int puntoLocales = scanner.nextInt();
 
@@ -95,3 +108,4 @@ public class Main {
     }
 
 }
+
